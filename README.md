@@ -22,7 +22,7 @@
                 pip install -i https://test.pypi.org/simple/ utils-edchin
 
 ###  Importing
-                import lambdata_edchin.pyxlib as pyx
+                import utils_edchin.pyxlib as pyx
                 dir(pyx)
 
 ###  Using create_kaggle_submission(pred_array,x_test_df,dest_url):
