@@ -1,16 +1,16 @@
-# Data Science Uutilitites in Python
+# Data Science Uutilities in Python
 
 ## Python Package site :
-   https://test.pypi.org/project/lambdata-edchin/
+   https://test.pypi.org/project/utils-edchin/
 
 ## Git Repo
-   https://github.com/ed-chin-git/lambdata 
+   https://github.com/ed-chin-git/Utils_edchin
 
 ## Packaging Python Projects Tutorial
     https://packaging.python.org/tutorials/packaging-projects/ 
 
 ## Installation
-                pip install -i https://test.pypi.org/simple/ lambdata-edchin
+                pip install -i https://test.pypi.org/simple/ utils-edchin
 
 ##  Importing
                 import lambdata_edchin.pyxlib as pyx
@@ -20,6 +20,4 @@
     inputs : predictions array
            X_test dataframe  
            csv destination url  
-    outputs :  .csv file formatted for kaggle submission 
-
-
+    outputs :  .csv file formatted for kaggle submission
