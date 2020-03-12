@@ -5,7 +5,7 @@
 #___ Variance:average of the squared differences from the mean____
 #  pyx.variance([4,5,6,7])
 #_________________________________________________________________
-def var_edc(numbers):
+def variance_edc(numbers):
     #___ calculate mean________________
     me_an=sum(numbers) / len(numbers)
     #____calculate variance using a list comprehension__________
