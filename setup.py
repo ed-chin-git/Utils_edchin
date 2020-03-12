@@ -23,7 +23,7 @@ with open('README.md','r') as fh:
 
 setuptools.setup(
     name='utils-edchin',
-    version='1.0.0' ,
+    version='1.0.1' ,
     author='Ed Chin',
     description="Personal Data Science Utilities in Python",
     long_description=LONG_DESCRIPTION,
