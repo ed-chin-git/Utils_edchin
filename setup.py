@@ -18,9 +18,13 @@ REQUIRED = [
     'sklearn'
     ]
 
+# get the Long Descrition from Readme.md
 with open('README.md','r') as fh:
   LONG_DESCRIPTION = fh.read()
 
+
+# Docs : https://setuptools.readthedocs.io/en/latest/setuptools.html#command-reference
+# Go to "New and Changed setup() Keywords"
 setuptools.setup(
     name='utils-edchin',
     version='1.0.1' ,
