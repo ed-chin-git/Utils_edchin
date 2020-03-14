@@ -1,5 +1,5 @@
 # _______How to use this module_____________________________
-#  import lambdata_edchin.pyxlib as pyx
+#  import utils_edchin.pyxlib as pyx
 import numpy as np
 
 def variance_edc(numbers):

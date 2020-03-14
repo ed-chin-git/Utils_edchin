@@ -11,18 +11,20 @@
 
 ## Developer Workflow:
    Make & test code changes locally
+   
+   Pushcode changes to Github
 
    Update version=(new version number) in setup.py & utils_edchin/__init__.py
 
-   Create distributions files : Saves a compressed version of the code in the "dist" dir
+   Delete any existing distribution files in dist/ subdirectory
 
-               python setup.py sdist bdist_wheel    
+   Create distribution files : Saves a compressed version of the code in the dist/ subdirectory
 
-   Push to Github
+      python setup.py sdist bdist_wheel    
 
    Upload the package to the test PyPI server, where it can be downloaded by others via pip commands    
 
-               twine upload --repository-url https://test.pypi.org/legacy/ dist/* 
+      twine upload --repository-url https://test.pypi.org/legacy/ dist/* 
                
 
 ## Installation
