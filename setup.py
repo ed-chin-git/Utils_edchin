@@ -27,7 +27,7 @@ with open('README.md','r') as fh:
 # Go to "New and Changed setup() Keywords"
 setuptools.setup(
     name='utils-edchin',
-    version='1.0.7',
+    version='1.0.8',
     author='Ed Chin',
     description="Personal Data Science Utilities in Python",
     long_description=LONG_DESCRIPTION,
