@@ -18,7 +18,7 @@ REQUIRED = [
     'sklearn'
     ]
 
-# get the Long Descrition from Readme.md
+# get the Long Description from Readme.md
 with open('README.md','r') as fh:
   LONG_DESCRIPTION = fh.read()
 
@@ -27,7 +27,7 @@ with open('README.md','r') as fh:
 # Go to "New and Changed setup() Keywords"
 setuptools.setup(
     name='utils-edchin',
-    version='1.0.7' ,
+    version='1.0.7',
     author='Ed Chin',
     description="Personal Data Science Utilities in Python",
     long_description=LONG_DESCRIPTION,

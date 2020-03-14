@@ -37,21 +37,21 @@ def train_val_test_split(X, y, train_size=0.8, val_size=0.1, test_size=0.1,
         X, y, test_size=test_size, random_state=random_state, shuffle=shuffle)
     # 2nd split train into train & val
     X_train, X_val, y_train, y_val = train_test_split(
-        X_train_val, y_train_val, test_size=val_size/(train_size+val_size), 
-        random_state=random_state, shuffle=shuffle)   
+        X_train_val, y_train_val, test_size=val_size/(train_size+val_size),
+        random_state=random_state, shuffle=shuffle)
     return X_train, X_val, X_test, y_train, y_val, y_test
 
 
-def removeOutliers(x):
-    a = np.array(x)
-    upper_quartile = np.percentile(a, 75)
-    lower_quartile = np.percentile(a, 25)
+def removeOutliers(input_list):
+    input_array = np.array(input_list)
+    upper_quartile = np.percentile(input_array, 75)
+    lower_quartile = np.percentile(input_array, 25)
     IQR = (upper_quartile - lower_quartile) * 1.5
     quartileSet = (lower_quartile - IQR, upper_quartile + IQR)
     resultList = []
-    for y in np.nditer(a):
+    for y in np.nditer(input_array):
         if y <= quartileSet[0] or y >= quartileSet[1]:
-            resultList.append(y.item())
+            resultList.append(y.item()) # .item() to avoid returning array
     return resultList
 
 
