@@ -35,9 +35,23 @@
                 dir(pyx)
 
 ###  Calling Functions
-   ## create_kaggle_submission(pred_array,x_test_df,dest_url):
+   create_kaggle_submission(pred_array,x_test_df,dest_url):
 
-                                 inputs : predictions array
-                                       X_test dataframe  
-                                       csv destination url  
-                                 outputs :  .csv file formatted for kaggle submission
+         inputs : predictions array
+                  X_test dataframe
+                  csv destination url
+
+         returns :  .csv file formatted for kaggle submission
+
+   removeOutliers(input_list)
+
+      based on : 
+         upper_quartile = np.percentile(input_array, 75)
+         lower_quartile = np.percentile(input_array, 25)
+         IQR = (upper_quartile - lower_quartile) * 1.5
+         quartileSet =
+          (lower_quartile - IQR, upper_quartile + IQR)
+         
+         inputs : list of numbers
+
+         returns : list of outliers
