@@ -8,6 +8,8 @@
 
 ## Packaging Python Projects Tutorial
    https://packaging.python.org/tutorials/packaging-projects/ 
+   
+   https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56
 
 ## Developer Workflow:
    Make & test code changes locally
