@@ -1,43 +1,46 @@
-# my_lambdata/assignment.py (OOP approach)
+# utils_edchin/DataPreprocessor.py
+
 import pandas
 class DataProcessor():
-    def __init__(self, my_df):
+    def __init__(self):
         """
-        Param: my_df (pandas.DataFrame) containing a column called "abbrev"
+        Param: 
         """
-        self.df = my_df.copy()
-    def add_state_names(self):
+
+    def add_state_names(self, df_in):
         """
         Adds corresponding state names to a dataframe.
-        Param: my_df (pandas.DataFrame) containing a column called "abbrev"
+        Param: df_in (pandas.DataFrame) containing a column called "abbrev"
         """
-        #new_df = self.df.copy()
+        df_out = df_in.copy()
         # type(new_df["abbrev"]) #> <class 'pandas.core.series.Series'>
         # see: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.map.html
         names_map = {
             "CA": "Cali",
             "CT": "Conn",
-            "CO": "Colorado"
+            "CO": "Colorado",
+            "TX": "Texas",
+            "DC": "Washington DC"
             # todo: more abbrevs!
         }
-        self.df["name"] = self.df["abbrev"].map(names_map)
+        df_out["name"] = df_out["abbrev"].map(names_map)
+        return df_out
 
 
 if __name__ == "__main__":
     print("--------------")
-    # setup a sample dataframe
+    # setup sample dataframes
     df1 = pandas.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
+    df2 = pandas.DataFrame({"abbrev": ["OH", "MI", "CO", "TX", "PA"]})
     
-    # instantiate an object from the class
-    #  (pass in the dataframe)
-    processor = DataProcessor(df1)
-    print('Input:\n',processor.df.head())  # take a look
+    processor = DataProcessor() # instantiate object (pass in a dataframe)
 
-    processor.add_state_names() # add names to the state abbrev's
-    print('Output:\n',processor.df.head())  # take another lookk
+    #  Process df1
+    print('Input:\n', df1)  # verify input
+    df_processed = processor.add_state_names(df1) # add names to the state abbrev's
+    print('Output:\n', df_processed.head())  # verify output
 
-    # print("--------------")
-    # df2 = pandas.DataFrame({"abbrev": ["OH", "MI", "CO", "TX", "PA"]})
-    # print(df2.head())
-    # new_df2 = add_state_names(df2)
-    # print(new_df2.head())
+    #  Process df2
+    print('Input:\n', df2)  # verify input
+    df_processed = processor.add_state_names(df2) # add names to the state abbrev's
+    print('Output:\n', df_processed.head())  # verify output
