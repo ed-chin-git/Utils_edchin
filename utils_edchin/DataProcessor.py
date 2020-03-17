@@ -21,9 +21,8 @@ class DataProcessor():
         Sample call : processor = DataProcessor()
                       df_out = processor.add_state_names(df_in)
         """
-        return
 
-    def add_state_names(self, df_in):
+    def add_state_names(df_in):
         """
         Adds corresponding state names to a dataframe.
         Param: df_in (pandas.DataFrame) containing a column called "abbrev"
@@ -113,4 +112,3 @@ if __name__ == "__main__":
     #  Process df1
     df_processed = processor.add_state_names(df1) # add names to the state abbrev's
     print('Output:\n', df_processed.head())  # verify output
-
