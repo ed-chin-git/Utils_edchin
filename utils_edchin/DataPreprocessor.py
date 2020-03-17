@@ -21,16 +21,21 @@ class DataProcessor():
             # todo: more abbrevs!
         }
         self.df["name"] = self.df["abbrev"].map(names_map)
+
+
 if __name__ == "__main__":
     print("--------------")
+    # setup a sample dataframe
     df1 = pandas.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
-    # print(df1.head())
-    # new_df = add_state_names(df1)
-    # print(new_df.head())
+    
+    # instantiate an object from the class
+    #  (pass in the dataframe)
     processor = DataProcessor(df1)
-    print(processor.df.head())
-    processor.add_state_names()
-    print(processor.df.head())
+    print('Input:\n',processor.df.head())  # take a look
+
+    processor.add_state_names() # add names to the state abbrev's
+    print('Output:\n',processor.df.head())  # take another lookk
+
     # print("--------------")
     # df2 = pandas.DataFrame({"abbrev": ["OH", "MI", "CO", "TX", "PA"]})
     # print(df2.head())
