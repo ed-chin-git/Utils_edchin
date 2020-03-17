@@ -8,11 +8,11 @@
 
 
 #  Importing
-import utils_edchin.pyxlib as pyx
-dir(pyx)
+if __name__ == "__main__":
+    import utils_edchin as dp
 
-#  Using create_kaggle_submission(pred_array,x_test_df,dest_url):
-#  inputs : predictions array
-#           X_test dataframe  
-#           csv destination url  
-#  outputs :  .csv file formatted for kaggle submission 
+    import utils_edchin.pyxlib as pyx
+
+    print (dir(dp))
+    
+
