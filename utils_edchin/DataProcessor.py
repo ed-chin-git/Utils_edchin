@@ -100,10 +100,6 @@ class DataProcessor():
         df_out["name"] = df_out["abbrev"].map(names_map)
         return df_out
 
-def add_state_name(df_in):
-    processor = DataProcessor()
-    df_out = processor.add_state_names(df_in)
-    return df_out
 
 
 if __name__ == "__main__":
@@ -112,9 +108,9 @@ if __name__ == "__main__":
     df1 = pandas.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
     df2 = pandas.DataFrame({"abbrev": ["OH", "MI", "SD", "PR", "PA"]})
     
-    # processor = DataProcessor() # instantiate object (pass in a dataframe)
-
+    processor = DataProcessor() # instantiate object (pass in a dataframe)
+    print (dir(processor))
     #  Process df1
-    df_processed = add_state_name(df1) # add names to the state abbrev's
+    df_processed = processor.add_state_names(df1) # add names to the state abbrev's
     print('Output:\n', df_processed.head())  # verify output
 
