@@ -24,7 +24,7 @@ with open('README.md','r') as fh:
 
 
 # Docs : https://setuptools.readthedocs.io/en/latest/setuptools.html#command-reference
-# Go to "New and Changed setup() Keywords"
+# Go to "New and Changed setup() Keywords "
 setuptools.setup(
     name='utils-edchin',
     version='1.0.9',
