@@ -7,14 +7,15 @@
             Create distributions files : Saves a compressed version of the code in the "dist" dir
                       python setup.py sdist bdist_wheel    
             Upload the package to the test PyPI server, where it can be downloaded by others via pip commands                              
-                      twine upload --repository-url https://test.pypi.org/legacy/ dist/* 
+                      twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+                      edchin  6feliciano9 
 """
 
 import setuptools
 
 REQUIRED = [
     'numpy',
-    'pandas',
+    'pandas',utils
     'sklearn'
     ]
 
@@ -27,7 +28,7 @@ with open('README.md','r') as fh:
 # Go to "New and Changed setup() Keywords "
 setuptools.setup(
     name='utils-edchin',
-    version='1.0.17',
+    version='1.0.18',
     author='Ed Chin',
     description="Personal Data Science Utilities in Python",
     long_description=LONG_DESCRIPTION,
