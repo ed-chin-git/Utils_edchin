@@ -13,7 +13,7 @@ class pyxlib():
                     def another_function(self)
                         new_df = self.df.copy()
                         return
-                
+
                 # -- instantiate obj from class def
                 pyx = pyxlib(df1) # class attrib holds passed-in df
 
