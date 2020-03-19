@@ -22,7 +22,7 @@ class DataProcessor():
                       df_out = processor.add_state_names(df_in)
         """
 
-    def add_state_names(df_in):
+    def add_state_names(self, df_in):
         """
         Adds corresponding state names to a dataframe.
         Param: df_in (pandas.DataFrame) containing a column called "abbrev"
