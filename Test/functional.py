@@ -1,5 +1,8 @@
-# my_lambdata/assignment.py (functional approach)
+# functional approach
 import pandas
+
+
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.map.html
 def add_state_names(my_df):
     """
     Adds corresponding state names to a dataframe.
@@ -7,7 +10,6 @@ def add_state_names(my_df):
     """
     new_df = my_df.copy()
     # type(new_df["abbrev"]) #> <class 'pandas.core.series.Series'>
-    # see: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.map.html
     names_map = {
         "CA": "Cali",
         "CT": "Conn",
@@ -16,6 +18,8 @@ def add_state_names(my_df):
     }
     new_df["name"] = new_df["abbrev"].map(names_map)
     return new_df
+
+
 if __name__ == "__main__":
     print("--------------")
     df = pandas.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
