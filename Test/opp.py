@@ -24,9 +24,8 @@ class DataProcessor():
 if __name__ == "__main__":
     print("--------------")
     df1 = pandas.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
-    #print(df1.head())
-    #new_df = add_state_names(df1)
-    #print(new_df.head())
+
+
     processor = DataProcessor(df1)
     print(processor.df.head())
     processor.add_state_names()
