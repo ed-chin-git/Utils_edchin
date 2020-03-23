@@ -25,7 +25,6 @@ if __name__ == "__main__":
     print("--------------")
     df1 = pandas.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
 
-
     processor = DataProcessor(df1)
     print(processor.df.head())
     processor.add_state_names()
