@@ -1,4 +1,4 @@
-# my_lambdata/assignment.py (OOP approach w/ inheritance)
+# (OOP approach w/ inheritance)
 import pandas
 class CustomFrame(pandas.DataFrame):
     """
@@ -6,6 +6,7 @@ class CustomFrame(pandas.DataFrame):
     """
     def add_state_names(self):
         """
+        
         Adds corresponding state names to a dataframe.
         """
         # type(new_df["abbrev"]) #> <class 'pandas.core.series.Series'>

@@ -1,4 +1,4 @@
-# my_lambdata/assignment.py (OOP approach)
+# (OOP approach)
 import pandas
 class DataProcessor():
     def __init__(self, my_df):
