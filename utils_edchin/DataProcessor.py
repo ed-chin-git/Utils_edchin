@@ -107,7 +107,14 @@ if __name__ == "__main__":
     df2 = pandas.DataFrame({"abbrev": ["OH", "MI", "SD", "PR", "PA"]})
     
     processor = DataProcessor() # instantiate object
-    print(dir(processor))
+    #print(dir(processor))
+    
     #  Process df1
+    print('Input:\n', df1.head())  # verify input
     df_processed = processor.add_state_names(df1) # add names to state abbrev's
+    print('Output:\n', df_processed.head())  # verify output
+
+    #  Process df2
+    print('Input:\n', df2.head())  # verify input
+    df_processed = processor.add_state_names(df2) # add names to state abbrev's
     print('Output:\n', df_processed.head())  # verify output
