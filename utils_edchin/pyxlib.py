@@ -49,7 +49,7 @@ class pyxlib():
 
 
     def train_val_test_split(self, X, y, train_size=0.8, val_size=0.1, test_size=0.1, 
-                            random_state=None, shuffle=True):
+                             random_state=None, shuffle=True):
         # Split sizes need to add up to 1.0 
         assert train_size + val_size + test_size == 1
         #  1st split creates train & test
@@ -63,7 +63,7 @@ class pyxlib():
 
 
     def removeOutliers(self, input_list):
-        # TODO need to asset that input_list 
+        # TODO need to asset that input_list
         # contains numeric items only
         input_array = np.array(input_list)
         upper_quartile = np.percentile(input_array, 75)
@@ -73,17 +73,17 @@ class pyxlib():
         resultList = []
         for y in np.nditer(input_array):
             if y <= quartileSet[0] or y >= quartileSet[1]:
-                resultList.append(y.item()) # .item() to avoid returning array
+                resultList.append(y.item())  # .item() to avoid returning array
         return resultList
 
 
 #  To run / test this module locally
 if __name__ == '__main__':
     # insert testing /calling code
-    # call the function inside the print statement 
+    # call the function inside the print statement
     # to see results in terminal window
 
-    pyx = pyxlib() # instantiate object (pass in a dataframe)
+    pyx = pyxlib() # instantiate object
     print (dir(pyx))
 
     #  Call Functions
