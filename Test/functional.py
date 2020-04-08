@@ -27,7 +27,7 @@ if __name__ == "__main__":
     new_df = add_state_names(df)
     print(new_df.head())
     print("--------------")
-    
+
     df2 = pandas.DataFrame({"abbrev": ["OH", "MI", "CO", "TX", "PA"]})
     print(df2.head())
     new_df2 = add_state_names(df2)

@@ -12,8 +12,8 @@ if __name__ == "__main__":
     ''' -- Run tests --
     '''
     import numpy as np
-    import utils_edchin.pyxlib as edc_xlib # import class
-    pyx = edc_xlib() # create instance
+    import utils_edchin.pyxlib as edc_xlib  # import class
+    pyx = edc_xlib()  # create instance
 
     num_list = [-10, 2, 5, 3, 8, 4, 7, 5, 10, 99, 1000]
     qSet = pyx.quartileSet(num_list)
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     print('Quartile limit-Lower:', qSet[0])
     print('               Upper:',qSet[1])
     print('    Outliers :', pyx.listOutliers(num_list))
-    print('w/o Outliers :', pyx.removeOutliers(num_list))    
+    print('w/o Outliers :', pyx.removeOutliers(num_list))
     print('      my Var :', pyx.variance_edc(pyx.removeOutliers(num_list)))
     print('   Numpy.Var :', np.var(pyx.removeOutliers(num_list)))
     
