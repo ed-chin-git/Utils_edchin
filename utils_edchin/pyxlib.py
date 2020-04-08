@@ -104,9 +104,6 @@ class pyxlib():
     def str_reverse(self, in_str):
         return (in_str[::-1])
 
-    def str_reverse2(self, in_str):
-        return str_reverse(in_str)
-
 #  To run / test this module locally
 if __name__ == '__main__':
     # insert testing /calling code
@@ -118,7 +115,7 @@ if __name__ == '__main__':
     #  Call Functions
     print('\n')
     print('TURBO reversed string =',pyx.str_reverse('TURBO'),'\n')
-    print('TURBO reversed string =',pyx.str_reverse('TURBO'),'\n')
+    print('TURBO reversed string =',pyx.str_reverse2('TURBO'),'\n')
 
     num_list = [-10, 2, 5, 3, 8, 4, 7, 5, 10, 99, 1000]
     print('List :', num_list)
