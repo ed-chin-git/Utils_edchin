@@ -77,7 +77,8 @@ class pyxlib():
                 resultList.append(y.item())  # .item() to avoid returning array
         return resultList
 
-
+    def str_reverse(self, in_str):
+        return (in_str[::-1])
 #  To run / test this module locally
 if __name__ == '__main__':
     # insert testing /calling code
@@ -88,5 +89,6 @@ if __name__ == '__main__':
     print(dir(pyx))
 
     #  Call Functions
-    print(pyx.variance_edc([5, 25, 99, 1325, 1125, 555, 6546, 888]))
+    print(pyx.variance_edc([5, 5, 9, 5, 4, 5, 6, 8]))
     print(pyx.removeOutliers([-10, 2, 5, 3, 8, 4, 7, 5, 10, 99, 1000]))
+    print('TURBO reversed =',pyx.str_reverse('TURBO'))
