@@ -16,6 +16,7 @@ if __name__ == "__main__":
     print( pyx.variance_edc([5, 25, 99, 1325, 1125, 555, 6546, 888]))
     num_list = [-10, 2, 5, 3, 8, 4, 7, 5, 10, 99, 1000]
     print('List :', num_list)
+    print('     :', type(num_list))
     print('Outliers :', pyx.listOutliers(num_list))
     print('wo/Outliers :', pyx.removeOutliers(num_list))
     print('TURBO reversed =', pyx.str_reverse('TURBO'))
