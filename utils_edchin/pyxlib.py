@@ -77,6 +77,15 @@ class pyxlib():
                 resultList.append(y.item())  # .item() to avoid returning array
         return resultList
 
+    def quartileSet(self, input_list):
+        # TODO need to assert that input_list
+        # contains numeric items only
+        input_array = np.array(input_list)
+        upper_quartile = np.percentile(input_array, 75)
+        lower_quartile = np.percentile(input_array, 25)
+        IQR = (upper_quartile - lower_quartile) * 1.5
+        quartileSet = (lower_quartile - IQR, upper_quartile + IQR)
+        return quartileSet
 
     def listOutliers(self, input_list):
         # TODO need to assert that input_list
@@ -95,6 +104,9 @@ class pyxlib():
     def str_reverse(self, in_str):
         return (in_str[::-1])
 
+    def str_reverse2(self, in_str):
+        return str_reverse(in_str)
+
 #  To run / test this module locally
 if __name__ == '__main__':
     # insert testing /calling code
@@ -102,13 +114,18 @@ if __name__ == '__main__':
     # to see results in terminal window
 
     pyx = pyxlib()  # instantiate object
-    print(dir(pyx))
 
     #  Call Functions
-    print(pyx.variance_edc([5, 50, 9, 5, 4, 5, 6, 8]))
-    print('TURBO reversed =',pyx.str_reverse('TURBO'))
-    
+    print('\n')
+    print('TURBO reversed string =',pyx.str_reverse('TURBO'),'\n')
+    print('TURBO reversed string =',pyx.str_reverse('TURBO'),'\n')
+
     num_list = [-10, 2, 5, 3, 8, 4, 7, 5, 10, 99, 1000]
     print('List :', num_list)
+
+    qSet = pyx.quartileSet(num_list)
+    print('Quartile limit-Lower:', qSet[0])
+    print('               Upper:',qSet[1])
     print('Outliers :',pyx.listOutliers(num_list))
-    print('wo/Outliers :',pyx.removeOutliers(num_list))
+    print('wo/Outliers :', pyx.removeOutliers(num_list))    
+    print('        Var :', pyx.variance_edc(pyx.removeOutliers(num_list)))
