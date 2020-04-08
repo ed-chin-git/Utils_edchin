@@ -9,22 +9,22 @@
 
 #  Importing
 if __name__ == "__main__":
-    import pandas
-    df_in = pandas.DataFrame({"abbrev": ["OH", "MI", "SD", "PR", "PA"]})
-
-    # import utils_edchin as edc
-    # print (dir(edc.DataProcessor.add_state_names))
-    # df_out = edc.DataProcessor.add_state_names(df_in=df_in)
-
-    import utils_edchin.DataProcessor as dp
-    import utils_edchin.pyxlib as pyx
-
-    print (dir(dp))
-    print (dir(pyx))
+    ''' -- Run tests --
+    '''
+    import utils_edchin.pyxlib as EDC_xlib
+    pyx = EDC_xlib()
+    print( pyx.variance_edc([5, 25, 99, 1325, 1125, 555, 6546, 888]))
+    num_list = [-10, 2, 5, 3, 8, 4, 7, 5, 10, 99, 1000]
+    print('List :', num_list)
+    print('Outliers :',pyx.listOutliers(num_list))
+    print('wo/Outliers :',pyx.removeOutliers(num_list))
+    print('TURBO reversed =', pyx.str_reverse('TURBO'))
     
-    df_out = dp.add_state_names(df_in)
-    print('Output:\n', df_out.head()) 
-
-    print(pyx.variance_edc([5, 25, 99, 1325, 1125, 555, 6546, 888]))
-    print(pyx.removeOutliers([-10, 2, 5, 3, 8, 4, 7, 5, 10, 99, 1000]))
+    import utils_edchin.DataProcessor as edc_dp # import class
+    import pandas 
+    dp = edc_dp() # create instance
+    df_in = pandas.DataFrame({"abbrev": ["OH", "MI", "SD", "PR", "PA"]})
+    df_out = dp.add_state_names(df_in) # use it
+    print('Input:\n', df_in.head())
+    print('Output:\n', df_out.head())
 
