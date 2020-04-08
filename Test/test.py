@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print('\nList :', num_list)
     print('Quartile limit-Lower:', qSet[0])
     print('               Upper:',qSet[1])
-    print('    Outliers :',pyx.listOutliers(num_list))
+    print('    Outliers :', pyx.listOutliers(num_list))
     print('w/o Outliers :', pyx.removeOutliers(num_list))    
     print('      my Var :', pyx.variance_edc(pyx.removeOutliers(num_list)))
     print('   Numpy.Var :', np.var(pyx.removeOutliers(num_list)))
