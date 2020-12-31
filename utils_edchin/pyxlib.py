@@ -2,6 +2,7 @@
 #  import utils_edchin.pyxlib as pyx
 import numpy as np
 import sys
+import os
 
 
 class pyxlib():
@@ -116,6 +117,25 @@ class pyxlib():
             return sys.platform
         return platforms[sys.platform]
 
+    def clear_terminal(self):
+        platforms = {
+            'linux1' : 'Linux',
+            'linux2' : 'Linux',
+            'darwin' : 'OS X',
+            'win32' : 'Windows'
+        }
+        if sys.platform not in platforms:
+            oper_sys = sys.platform
+        else:
+            oper_sys = platforms[sys.platform]
+
+        if  oper_sys == 'Windows':
+            os.system('cls')
+        else:
+            os.system('clear')
+        
+        return
+
 #  To run / test this module locally
 if __name__ == '__main__':
     # insert testing /calling code
@@ -123,6 +143,8 @@ if __name__ == '__main__':
     # to see results in terminal window
 
     pyx = pyxlib()  # instantiate object
+
+    pyx.clear_terminal()
 
     #  Call Functions
     print('\n')
@@ -137,6 +159,5 @@ if __name__ == '__main__':
     print('Outliers :',pyx.listOutliers(num_list))
     print('wo/Outliers :', pyx.removeOutliers(num_list))    
     print('        Var :', pyx.variance_edc(pyx.removeOutliers(num_list)))
-
 
     print('\nCurrent OS:', pyx.get_platform())
