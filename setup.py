@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-  Package setup/installation for lambdata_edchin
+  Package setup/installation for utild_edchin
   Workflow:
     Make & test code changes locally
     Update version=(new version number) in setup.py & utils_edchin/__init__.py
@@ -17,7 +17,7 @@ import setuptools
 REQUIRED = [
     'numpy',
     'pandas',
-    'sklearn'
+    'scikit-learn'
     ]
 
 # get the Long Description from Readme.md
@@ -30,7 +30,7 @@ with open('README.md', 'r') as fh:
 # Go to "New and Changed setup() Keywords "
 setuptools.setup(
     name='utils-edchin',
-    version='1.0.24',
+    version='1.0.26',
     author='Ed Chin',
     description="Personal Data Science Utilities in Python",
     long_description=LONG_DESCRIPTION,

@@ -26,7 +26,8 @@
 
    Upload the package to the test PyPI server, where it can be downloaded by others via pip commands    
 
-      twine upload --repository-url https://test.pypi.org/legacy/ dist/* 
+      twine upload --repository-url https://test.pypi.org/legacy/ dist/*   
+        edchin  6feliciano9
                
 
 ## Installation
