@@ -1,6 +1,7 @@
 # _______How to use this module_____________________________
 #  import utils_edchin.pyxlib as pyx
 import numpy as np
+import sys
 
 
 class pyxlib():
@@ -104,6 +105,17 @@ class pyxlib():
     def str_reverse(self, in_str):
         return (in_str[::-1])
 
+    def get_platform(self):
+        platforms = {
+            'linux1' : 'Linux',
+            'linux2' : 'Linux',
+            'darwin' : 'OS X',
+            'win32' : 'Windows'
+        }
+        if sys.platform not in platforms:
+            return sys.platform
+        return platforms[sys.platform]
+
 #  To run / test this module locally
 if __name__ == '__main__':
     # insert testing /calling code
@@ -115,7 +127,6 @@ if __name__ == '__main__':
     #  Call Functions
     print('\n')
     print('TURBO reversed string =',pyx.str_reverse('TURBO'),'\n')
-    print('TURBO reversed string =',pyx.str_reverse2('TURBO'),'\n')
 
     num_list = [-10, 2, 5, 3, 8, 4, 7, 5, 10, 99, 1000]
     print('List :', num_list)
@@ -126,3 +137,6 @@ if __name__ == '__main__':
     print('Outliers :',pyx.listOutliers(num_list))
     print('wo/Outliers :', pyx.removeOutliers(num_list))    
     print('        Var :', pyx.variance_edc(pyx.removeOutliers(num_list)))
+
+
+    print('\nCurrent OS:', pyx.get_platform())
