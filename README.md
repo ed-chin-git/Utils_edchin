@@ -34,8 +34,9 @@
                 pip install -i https://test.pypi.org/simple/ utils-edchin
 
 ### Importing
-                import utils_edchin.pyxlib as pyx
-                dir(pyx)
+            import utils_edchin.pyxlib as edc
+            edc = edc()
+            edc.clear_terminal()
 
 ###  Calling Functions
    create_kaggle_submission(pred_array,x_test_df,dest_url):
