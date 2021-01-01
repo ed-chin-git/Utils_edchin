@@ -5,28 +5,17 @@ import pandas
 class DataProcessor():
     def __init__(self):
         """
-                # --- PREVIOUS VERSION ---
-                # -- define class
-                class = DataProcessor(df1)
-                    def __init__(self, my_df):
-                        self.df = my_df.copy()
-                        return
-                    def another_function()
-                        new_df = self.df.copy()
-                        return
-                # -- instantiate obj
-                processor = DataProcessor(df1) # class attribute holds df
-
-        Input Params : none
-        Sample call : processor = DataProcessor()
-                      df_out = processor.add_state_names(df_in)
+            USE : 
+            import utils_edchin.DataProcessor as dpro
+            dpro = dpro()
+            dpro.add_state_names(df1,column_name)
         """
 
 
-    def add_state_names(self, df_in):
+    def add_state_names(self, df_in, abbrev_col):
         """
         Adds corresponding state names to a dataframe.
-        Param: df_in (pandas.DataFrame) containing a column called "abbrev"
+        Param: df_in (pandas.DataFrame, column_name str) 
         """
         df_out = df_in.copy()
         names_map = {
@@ -97,7 +86,7 @@ class DataProcessor():
             "PW": "Palau",
             "VI": "Virgin Islands"
         }
-        df_out["name"] = df_out["abbrev"].map(names_map)
+        df_out["name"] = df_out[abbrev_col].map(names_map)
         return df_out
 
 
@@ -105,17 +94,18 @@ if __name__ == "__main__":
     # python -m package.subpackage.module
     # setup sample dataframes
     df1 = pandas.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
-    df2 = pandas.DataFrame({"abbrev": ["OH", "MI", "SD", "PR", "PA"]})
+    df2 = pandas.DataFrame({"State": ["OH", "MI", "SD", "PR", "PA"]})
     
     processor = DataProcessor() # instantiate object
-    #print(dir(processor))
     
     #  Process df1
     print('Input:\n', df1.head())  # verify input
-    df_processed = processor.add_state_names(df1) # add names to state abbrev's
+    df_processed = processor.add_state_names(df1,'abbrev') # add names to state abbrev's
     print('Output:\n', df_processed.head())  # verify output
 
     #  Process df2
     print('Input:\n', df2.head())  # verify input
-    df_processed = processor.add_state_names(df2) # add names to state abbrev's
+    df_processed = processor.add_state_names(df2, 'State') # add names to state abbrev's
     print('Output:\n', df_processed.head())  # verify output
+    
+    
