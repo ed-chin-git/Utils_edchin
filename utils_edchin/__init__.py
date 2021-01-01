@@ -10,7 +10,7 @@ In this case:
 
 
 '''
-VERSION='1.0.28'
+VERSION='1.0.29'
 import pandas
 from sklearn.model_selection import train_test_split
 from utils_edchin.DataProcessor import *
