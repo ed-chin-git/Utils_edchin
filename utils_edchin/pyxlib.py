@@ -7,24 +7,8 @@ import os
 
 class pyxlib():
     def __init__(self):
-        """
-                # --- PREVIOUS VERSION ---
-                # -- define class
-                class = pyxlib(df1)
-                    def __init__(self, my_df):
-                        self.df = my_df.copy()
-                        return
-                    def another_function(self)
-                        new_df = self.df.copy()
-                        return
+        return
 
-                # -- instantiate obj from class def
-                pyx = pyxlib(df1) # class attrib holds passed-in df
-
-        Input Params : none
-        Sample call : pyx = DataProcessor()
-                      df_out = processor.add_state_names(df_in)
-        """
 
     def variance_edc(self, numbers):
         # ___ Variance:average of the squared differences from the mean____
@@ -144,20 +128,21 @@ if __name__ == '__main__':
 
     pyx = pyxlib()  # instantiate object
 
+
+    #  Unit Testing all Functions
     pyx.clear_terminal()
 
-    #  Call Functions
-    print('\n')
     print('TURBO reversed string =',pyx.str_reverse('TURBO'),'\n')
 
     num_list = [-10, 2, 5, 3, 8, 4, 7, 5, 10, 99, 1000]
     print('List :', num_list)
-
     qSet = pyx.quartileSet(num_list)
-    print('Quartile limit-Lower:', qSet[0])
+    print('Quartile limit-Lower:', qSet[0] )
+    print('              Median:', np.median(np.array(num_list)))
     print('               Upper:',qSet[1])
+
     print('Outliers :',pyx.listOutliers(num_list))
     print('wo/Outliers :', pyx.removeOutliers(num_list))    
-    print('        Var :', pyx.variance_edc(pyx.removeOutliers(num_list)))
+    print('   Variance :', pyx.variance_edc(pyx.removeOutliers(num_list)))
 
     print('\nCurrent OS:', pyx.get_platform())
