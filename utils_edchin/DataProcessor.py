@@ -1,6 +1,7 @@
 # utils_edchin/DataPreprocessor.py
 
-import pandas
+import pandas as pd
+from collections import Counter
 
 class DataProcessor():
     def __init__(self):
@@ -15,7 +16,7 @@ class DataProcessor():
     def add_state_names(self, df_in, abbrev_col):
         """
         Adds corresponding state names to a dataframe.
-        Param: df_in (pandas.DataFrame, column_name str) 
+        Param: df_in (pd.DataFrame, column_name str) 
         """
         df_out = df_in.copy()
         names_map = {
@@ -89,12 +90,57 @@ class DataProcessor():
         df_out["name"] = df_out[abbrev_col].map(names_map)
         return df_out
 
+    def word_count(self, docs):
+        '''
+
+        This function takes a list of tokenized documents as input and returns
+        a dataframe with 
+        
+        # Arguments
+            docs: list, tokenized list of documents
+            
+        # Returns
+            wc: dataframe, 
+        
+        Reference:
+        D:/Github/DSPT4/DS-Unit-4-Sprint-1-NLP/module1-text-data/LS_DSPT4_411_Text Data_Lecture.ipynb
+
+        '''
+        
+        word_counts = Counter()
+        appears_in = Counter()
+
+        total_docs = len(docs)
+
+        for doc in docs:
+            word_counts.update(doc)
+            appears_in.update(set(doc))
+
+        temp = zip(word_counts.keys(), word_counts.values())
+
+        wc = pd.DataFrame(temp, columns = ['word', 'count'])
+
+        wc['rank'] = wc['count'].rank(method='first', ascending=False)
+        total = wc['count'].sum()
+
+        wc['pct_total'] = wc['count'].apply(lambda x: x / total)
+
+        wc = wc.sort_values(by='rank')
+        wc['cul_pct_total'] = wc['pct_total'].cumsum()
+
+        t2 = zip(appears_in.keys(), appears_in.values())
+        ac = pd.DataFrame(t2, columns=['word', 'appears_in'])
+        wc = ac.merge(wc, on='word')
+
+        wc['appears_in_pct'] = wc['appears_in'].apply(lambda x: x / total_docs)
+
+        return wc.sort_values(by='rank')
 
 if __name__ == "__main__":
     # python -m package.subpackage.module
     # setup sample dataframes
-    df1 = pandas.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
-    df2 = pandas.DataFrame({"State": ["OH", "MI", "SD", "PR", "PA"]})
+    df1 = pd.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
+    df2 = pd.DataFrame({"State": ["OH", "MI", "SD", "PR", "PA"]})
     
     processor = DataProcessor() # instantiate object
     
@@ -107,5 +153,8 @@ if __name__ == "__main__":
     print('Input:\n', df2.head())  # verify input
     df_processed = processor.add_state_names(df2, 'State') # add names to state abbrev's
     print('Output:\n', df_processed.head())  # verify output
+
+    df_wc = processor.word_count(df_processed['name'])
+    print(df_wc)
     
     
