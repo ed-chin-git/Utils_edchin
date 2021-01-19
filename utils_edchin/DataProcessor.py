@@ -137,6 +137,14 @@ class DataProcessor():
         return wc.sort_values(by='rank')
 
 if __name__ == "__main__":
+
+    import utils_edchin.pyxlib as sysx
+    sysx = sysx()
+    sysx.clear_terminal()        
+    
+    import sys
+    print ('Python version',sys.version)
+    
     # python -m package.subpackage.module
     # setup sample dataframes
     df1 = pd.DataFrame({"abbrev": ["CA", "CT", "CO", "TX", "DC"]})
@@ -156,5 +164,3 @@ if __name__ == "__main__":
 
     df_wc = processor.word_count(df_processed['name'])
     print(df_wc)
-    
-    
